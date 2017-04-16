@@ -101,7 +101,7 @@ exports.getUser = function(event, cb) {
       cb(err);
     } else {
       if (data.Item) {
-        cb(null, {"body": mapUserItem(data.Item)});
+        cb(null, {"body": JSON.stringify(mapUserItem(data.Item))});
       } else {
         cb(new Error('not found'));
       }
@@ -220,7 +220,7 @@ exports.getTasks = function(event, cb) {
       cb(err);
     } else {
       var res = {
-        "body": data.Items.map(mapTaskItem)
+        "body": JSON.stringify(data.Items.map(mapTaskItem))
       };
       if (data.LastEvaluatedKey !== undefined) {
         res.headers = {"next": data.LastEvaluatedKey.tid.N};
