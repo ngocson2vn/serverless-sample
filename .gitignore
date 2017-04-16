@@ -1,3 +1,6 @@
 node_modules/
 lambda.zip
 .serverless/
+.DS_Store
+._.DS_Store
+
